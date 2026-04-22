@@ -1,0 +1,393 @@
+{
+  "MockVulnerableApp": [
+    {
+      "name": "AuthenticationVulnerability",
+      "id": "AuthenticationVulnerability",
+      "description": "hi bro ia ma sfasdfasdffal;sdkf;klasdfjldsfkdfjdsalkfjdfjdfldsfjdlflajdsfkdfjkd",
+      "vulnerabilityTypes": [],
+      "levels": [
+        {
+          "levelIdentifier": "LEVEL_1",
+          "variant": "UNSECURE",
+          "resourceInformation": {
+            "htmlResource": {
+              "resourceType": "HTML",
+              "isAbsolute": false,
+              "uri": "/VulnerableApp/templates/AuthenticationVulnerability/LEVEL_1/Auth.html"
+            },
+            "staticResources": [
+              {
+                "resourceType": "CSS",
+                "isAbsolute": false,
+                "uri": "/VulnerableApp/templates/AuthenticationVulnerability/LEVEL_1/Auth.css"
+              },
+              {
+                "resourceType": "JAVASCRIPT",
+                "isAbsolute": false,
+                "uri": "/VulnerableApp/templates/AuthenticationVulnerability/LEVEL_1/Auth.js"
+              }
+            ]
+          },
+          "challengeCards": [
+            {
+              "challengeText": "Bypass the authentication mechanism and gain access to the admin panel.",
+              "hints": [
+                {
+                  "order": 1,
+                  "text": "Look at how the username is validated."
+                },
+                {
+                  "order": 2,
+                  "text": "Check what happens when authentication fails."
+                }
+              ],
+              "payload": {
+                "description": "Final exploit payload to bypass login.",
+                "value": "' OR 1=1 --"
+              }
+            },
+             {
+              "challengeText": "Bypass the authentication mechanism and gain access to the admin panel.",
+              "hints": [
+                {
+                  "order": 1,
+                  "text": "Look at how the username is validated."
+                },
+                {
+                  "order": 2,
+                  "text": "Check what happens when authentication fails."
+                }
+              ],
+              "payload": {
+                "description": "Final exploit payload to bypass login.",
+                "value": "' OR 1=1 --"
+              }
+            }
+          ]
+        },
+         {
+            "levelIdentifier":"LEVEL_2",
+            "variant":"UNSECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/AuthenticationVulnerability/LEVEL_1/Auth.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/AuthenticationVulnerability/LEVEL_1/Auth.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/AuthenticationVulnerability/LEVEL_1/Auth.js"
+                  }
+               ]
+            },
+            "hints":[
+               {
+                  "vulnerabilityTypes":[
+                     {
+                        "identifierType":"Custom",
+                        "value":"PLAINTEXT_PASSWORD_STORAGE"
+                     },
+                     {
+                        "identifierType":"CWE",
+                        "value":"256"
+                     }
+                  ],
+                  "description":"\u003Cb\u003EDescription about the attack:\u003C/b\u003E The application logs the provided password in plaintext. Check the server logs (console or log file) to see exposed credentials. This demonstrates a sensitive logging issue and why sensitive data should never be logged.\u003Cbr/\u003E\u003Cb\u003EPayload:\u003C/b\u003E Login with username 'admin_logs' and any password. Then, check the server console or logs to see the provided password exposed in plaintext, highlighting sensitive logging concerns.Check the database (as mentioned in the module description) to find the plaintext password for this user."
+               }
+            ]
+         }
+      ]
+    },
+    {
+      "name":"ClickjackingVulnerability",
+      "id":"ClickjackingVulnerability",
+      "description":"Clickjacking (also known as a UI redress attack) is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page. Clickjacking attacks exploit the ability of browsers to embed pages in iframes. An attacker creates a malicious page that loads the target site in a transparent iframe overlaid on top of a decoy UI. When the user clicks what they think is a legitimate button, they are actually clicking on the hidden, embedded page. \u003Cbr/\u003E\u003Cbr/\u003EThe primary defenses against clickjacking are HTTP response headers that instruct the browser whether a page is allowed to be framed. \u003Cbr/\u003E\u003Cbr/\u003EImportant Links:\u003Cbr/\u003E\u003Col\u003E \u003Cli\u003E \u003Ca href=\"https://owasp.org/www-community/attacks/Clickjacking\" target=\"_blank\"\u003EOWASP Clickjacking Attack\u003C/a\u003E  \u003Cli\u003E \u003Ca href=\"https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html\" target=\"_blank\"\u003EOWASP Clickjacking Defense Cheat Sheet\u003C/a\u003E \u003Cli\u003E \u003Ca href=\"https://cwe.mitre.org/data/definitions/1021.html\" target=\"_blank\"\u003ECWE-1021: Improper Restriction of Rendered UI Layers or Frames\u003C/a\u003E \u003Cli\u003E \u003Ca href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options\" target=\"_blank\"\u003EMDN: X-Frame-Options\u003C/a\u003E \u003Cli\u003E \u003Ca href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors\" target=\"_blank\"\u003EMDN: CSP frame-ancestors\u003C/a\u003E \u003C/ol\u003E",
+      "vulnerabilityTypes":[
+         
+      ],
+      "levels":[
+         {
+            "levelIdentifier":"LEVEL_1",
+            "variant":"UNSECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.js"
+                  }
+               ]
+            },
+            "hints":[
+               {
+                  "vulnerabilityTypes":[
+                     {
+                        "identifierType":"Custom",
+                        "value":"CLICKJACKING"
+                     },
+                     {
+                        "identifierType":"CWE",
+                        "value":"1021"
+                     }
+                  ],
+                  "description":"\u003Cb\u003EDescription about the attack:\u003C/b\u003E No X-Frame-Options or Content-Security-Policy frame-ancestors header is set. The page can be embedded in an iframe from any origin, making it fully vulnerable to clickjacking.\u003Cbr/\u003E\u003Cb\u003EPayload:\u003C/b\u003E Payload is not applicable for the attack vector."
+               }
+            ]
+         },
+         {
+            "levelIdentifier":"LEVEL_2",
+            "variant":"UNSECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.js"
+                  }
+               ]
+            },
+            "hints":[
+               {
+                  "vulnerabilityTypes":[
+                     {
+                        "identifierType":"Custom",
+                        "value":"CLICKJACKING"
+                     },
+                     {
+                        "identifierType":"CWE",
+                        "value":"1021"
+                     }
+                  ],
+                  "description":"\u003Cb\u003EDescription about the attack:\u003C/b\u003E X-Frame-Options header is set to ALLOWALL, which explicitly permits embedding from any origin. This is equivalent to having no protection.\u003Cbr/\u003E\u003Cb\u003EPayload:\u003C/b\u003E Payload is not applicable for the attack vector."
+               }
+            ]
+         },
+         {
+            "levelIdentifier":"LEVEL_3",
+            "variant":"UNSECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.js"
+                  }
+               ]
+            },
+            "hints":[
+               {
+                  "vulnerabilityTypes":[
+                     {
+                        "identifierType":"Custom",
+                        "value":"CLICKJACKING"
+                     },
+                     {
+                        "identifierType":"CWE",
+                        "value":"1021"
+                     }
+                  ],
+                  "description":"\u003Cb\u003EDescription about the attack:\u003C/b\u003E X-Frame-Options header is set to SAMEORIGIN, which only allows the page to be embedded by pages on the same origin. Cross-origin clickjacking is prevented, but same-origin framing is still allowed.\u003Cbr/\u003E\u003Cb\u003EPayload:\u003C/b\u003E Payload is not applicable for the attack vector."
+               }
+            ]
+         },
+         {
+            "levelIdentifier":"LEVEL_4",
+            "variant":"SECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.js"
+                  }
+               ]
+            },
+            "hints":[
+               
+            ]
+         },
+         {
+            "levelIdentifier":"LEVEL_5",
+            "variant":"SECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_1/ClickjackingVulnerability.js"
+                  }
+               ]
+            },
+            "hints":[
+               
+            ]
+         },
+         {
+            "levelIdentifier":"LEVEL_6",
+            "variant":"UNSECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_4/ClickjackingVulnerability.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_4/ClickjackingVulnerability.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_4/ClickjackingVulnerability.js"
+                  }
+               ]
+            },
+            "hints":[
+               {
+                  "vulnerabilityTypes":[
+                     {
+                        "identifierType":"Custom",
+                        "value":"CLICKJACKING"
+                     },
+                     {
+                        "identifierType":"CWE",
+                        "value":"1021"
+                     }
+                  ],
+                  "description":"\u003Cb\u003EDescription about the attack:\u003C/b\u003E No framing protection header is set. This level demonstrates a UI overlay attack: the attacker overlays a nearly-transparent victim page on top of fake \"prize\" content. The victim clicks what appears to be a prize button but unknowingly triggers a sensitive action on the victim page.\u003Cbr/\u003E\u003Cb\u003EPayload:\u003C/b\u003E Payload is not applicable for the attack vector."
+               }
+            ]
+         },
+         {
+            "levelIdentifier":"LEVEL_7",
+            "variant":"UNSECURE",
+            "description":null,
+            "resourceInformation":{
+               "htmlResource":{
+                  "absolute":false,
+                  "resourceType":"HTML",
+                  "isAbsolute":false,
+                  "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_4/ClickjackingVulnerability.html"
+               },
+               "staticResources":[
+                  {
+                     "absolute":false,
+                     "resourceType":"CSS",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_4/ClickjackingVulnerability.css"
+                  },
+                  {
+                     "absolute":false,
+                     "resourceType":"JAVASCRIPT",
+                     "isAbsolute":false,
+                     "uri":"/VulnerableApp/templates/ClickjackingVulnerability/LEVEL_4/ClickjackingVulnerability.js"
+                  }
+               ]
+            },
+            "hints":[
+               {
+                  "vulnerabilityTypes":[
+                     {
+                        "identifierType":"Custom",
+                        "value":"CLICKJACKING"
+                     },
+                     {
+                        "identifierType":"CWE",
+                        "value":"1021"
+                     }
+                  ],
+                  "description":"\u003Cb\u003EDescription about the attack:\u003C/b\u003E X-Frame-Options header is set to SAMEORIGIN, but this only prevents cross-origin framing. A same-origin attacker page can still overlay the victim page and perform a UI redress attack. This level shows that SAMEORIGIN alone is insufficient when the attacker controls a page on the same origin.\u003Cbr/\u003E\u003Cb\u003EPayload:\u003C/b\u003E Payload is not applicable for the attack vector."
+               }
+            ]
+         }
+      ]
+   }
+  ]
+}

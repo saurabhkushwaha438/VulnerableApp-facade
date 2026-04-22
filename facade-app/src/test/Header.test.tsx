@@ -130,8 +130,10 @@ describe("Header", () => {
         showHints: false,
       };
       render(<Header setGlobalState={mock} globalState={state} />);
-      
-      const owaspLink = screen.getByRole("link", { name: "Owasp VulnerableApp" });
+
+      const owaspLink = screen.getByRole("link", {
+        name: "Owasp VulnerableApp",
+      });
       const owaspIcon = screen.getAllByRole("img")[3];
       const text = screen.getByText("Owasp VulnerableApp");
 

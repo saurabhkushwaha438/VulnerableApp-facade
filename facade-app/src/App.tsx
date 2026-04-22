@@ -19,6 +19,7 @@ export default class App extends React.Component {
     activateAboutUsPage: false,
     activateHomePage: true,
     showHints: false,
+    isChallengeModeEnabled: false,
   };
 
   _populateGlobalState(
@@ -53,6 +54,7 @@ export default class App extends React.Component {
   componentDidMount() {
     getResource(
       "/VulnerabilityDefinitions",
+    //  "/mockResponse.json",
       this._populateGlobalState.bind(this),
       true
     );
@@ -79,9 +81,7 @@ export default class App extends React.Component {
           globalState={this.state}
           setGlobalState={this.setGlobalState}
         ></Header>
-        <RSuiteContainer
-          className="show-container VulnerableApp-Facade-MainLayout"
-        >
+        <RSuiteContainer className="show-container VulnerableApp-Facade-MainLayout">
           <RSuitesSidebar className="VulnerableApp-Facade-MasterPane">
             <div className="VulnerableApp-Facade-MasterPane-Inner">
               <LeftNav

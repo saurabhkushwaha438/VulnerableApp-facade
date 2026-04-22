@@ -1,28 +1,25 @@
 export interface VulnerabilityType {
-  /**
-   * Represents identifier type of Vulnerability like CWE or WASC or any other.
-   * We have not restricted to anyone type of the identifier as there is no standard which covers
-   * all the types of Vulnerabilities.
-   */
   identifierType: string;
-
-  /**
-   * E.g. WASC-1
-   */
   value: string;
 }
 
 /**
- * Hints are to help user to crack the vulnerability level
+ * Hints are to help user to crack the vulnerability level (Scanner Mode)
  */
 export interface Hint {
   vulnerabilityTypes: Array<VulnerabilityType>;
   description: string;
 }
 
+/**
+ * Challenge Mode Hint (NEW - matches your JSON)
+ */
+export interface ChallengeHint {
+  order: number;
+  text: string;
+}
+
 export enum ResourceType {
-  //HTML is sufficient for the server side languages
-  // which returns the html with extensions as ".php" or ".jsp" etc
   HTML = "HTML",
   JAVASCRIPT = "JAVASCRIPT",
   CSS = "CSS",
@@ -39,68 +36,50 @@ export interface ResourceInformation {
   staticResources: Array<ResourceURI>;
 }
 
-/**
- * Information about the Level present in the Vulnerability.
- * TODO we can work more on things like difficulty levels or scores etc. But currently those
- * things are out of scope of the VulnerableApp-Facade.
- */
-export interface LevelInformation {
-  /**
-   * Identifier of the Level.
-   * As this is shown in the UI so we have a convension what it is of the formation LEVEL_*
-   * where * represent the number identifier like LEVEL_1, LEVEL_2 etc.
-   */
-  levelIdentifier: string;
-
-  /**
-   * Represents whether the level is SECURE or UNSECURE.
-   * This might not be needed for general applications but in case a vulnerable
-   * application needs to send few secure implementations too such that scanners
-   * are evaluated for false positives.
-   */
-  variant: string;
-
-  hints: Array<Hint>;
-
-  /**
-   * As we know that VulnerableApp-Facade will be building the skeleton
-   * so to load the UI of the actual Vulnerable Application we need to inject the
-   * Html inside the Skeleton. This Resource Information provides that information.
-   */
-  resourceInformation: ResourceInformation;
+export interface Payload {
+  description?: string;
+  value: string;
 }
 
+/**
+ * Challenge Mode Structure (UPDATED)
+ */
+export interface Challenge {
+  challengeText: string;
+  hints?: Array<ChallengeHint>; // ✅ updated
+  payload?: Payload;
+}
+
+/**
+ * Information about the Level present in the Vulnerability.
+ */
+export interface LevelInformation {
+  levelIdentifier: string;
+  variant: string;
+
+  // Scanner mode hints (unchanged)
+  hints: Array<Hint>;
+
+  resourceInformation: ResourceInformation;
+
+  // Challenge mode
+  challengeCards?: Array<Challenge>;
+  challenge?: Challenge;
+}
+
+/**
+ * Vulnerability Definition
+ */
 export interface VulnerabilityDefinition {
-  /**
-   * Name of the Vulnerability.
-   * This will be shown in the UI and expectation is that it should be human readable.
-   */
   name: string;
-  /**
-   * Unique identifier for each Vulnerability inside an Application
-   */
   id: string;
-  /**
-   * Description about the Vulnerability.
-   * This will be shown in the UI and as it describes the vulnerability, it should be human readable.
-   */
   description: string;
-
-  /**
-   * VulnerabilityTypes represents the different standard identifier for one vulnerability.
-   * For example: WASC-01 and CWE-287 both represent Insufficient Authentication vulnerability hence
-   * both will be added here.
-   */
   vulnerabilityTypes: Array<VulnerabilityType> | null;
-
-  /**
-   * Information about each level present under the vulnerability
-   */
   levels: Array<LevelInformation>;
 }
 
 /**
- * Represents the VulnerableApplications entire state.
+ * Application State
  */
 export interface ApplicationState {
   applicationName: string;
@@ -108,7 +87,7 @@ export interface ApplicationState {
 }
 
 /**
- * Global State representing the entire data of the application.
+ * Global State
  */
 export interface GlobalState {
   applicationData?: Array<ApplicationState>;
@@ -119,4 +98,5 @@ export interface GlobalState {
   activateHomePage: boolean;
   activateAboutUsPage: boolean;
   showHints: boolean;
+  isChallengeModeEnabled: boolean;
 }
