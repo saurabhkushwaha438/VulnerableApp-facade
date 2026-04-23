@@ -111,7 +111,7 @@ export class Content extends React.Component<Props, ContentState> {
                     collapsible={true}
                     defaultExpanded={true}
                   >
-                    <div className="VulnerableApp-Facade-Content">
+                    <div className="VulnerableApp-Facade-Content"  data-testid="VULNERABILITY_CONTENT_DESCRIPTION">
                       <div
                         dangerouslySetInnerHTML={{
                           __html: this.state?.description || "",

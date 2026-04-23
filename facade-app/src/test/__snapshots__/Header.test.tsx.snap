@@ -3,154 +3,32 @@
 exports[`Header renders correctly 1`] = `
 <div>
   <div
-    class="rs-header"
+    style="position: relative; z-index: 9999;"
   >
     <div
-      class="rs-navbar rs-navbar-inverse"
-      role="navigation"
+      class="rs-header"
     >
       <div
-        class="rs-navbar-header"
-      >
-        <img
-          alt="vulnerable app logo"
-          height="55"
-          src="Logo.png"
-          width="55"
-        />
-      </div>
-      <div
-        class="rs-navbar-body"
+        class="rs-navbar rs-navbar-inverse"
+        role="navigation"
       >
         <div
-          class="rs-nav rs-nav-default rs-navbar-nav rs-nav-horizontal"
+          class="rs-navbar-header"
         >
-          <ul>
-            <li
-              class="rs-nav-item"
-            >
-              <a
-                class="rs-nav-item-content"
-                role="button"
-                tabindex="0"
-              >
-                <b>
-                  Owasp VulnerableApp-Facade
-                </b>
-                <span
-                  class="rs-ripple-pond"
-                >
-                  <span
-                    class="rs-ripple"
-                  />
-                </span>
-              </a>
-            </li>
-          </ul>
+          <img
+            alt="vulnerable app logo"
+            height="55"
+            src="Logo.png"
+            width="55"
+          />
         </div>
         <div
-          class="rs-nav rs-nav-default rs-navbar-nav rs-navbar-right rs-nav-horizontal"
+          class="rs-navbar-body"
         >
-          <ul>
-            <li
-              class="rs-nav-item"
-            >
-              <a
-                class="rs-nav-item-content"
-                role="button"
-                tabindex="0"
-              >
-                <i
-                  class="rs-icon rs-icon-home"
-                  role="img"
-                />
-                Home
-                <span
-                  class="rs-ripple-pond"
-                >
-                  <span
-                    class="rs-ripple"
-                  />
-                </span>
-              </a>
-            </li>
-            <li
-              class="rs-nav-item"
-            >
-              <a
-                class="rs-nav-item-content"
-                role="button"
-                tabindex="0"
-              >
-                About Us
-                <span
-                  class="rs-ripple-pond"
-                >
-                  <span
-                    class="rs-ripple"
-                  />
-                </span>
-              </a>
-            </li>
-            <li
-              class="rs-dropdown rs-dropdown-placement-bottom-start"
-              role="menu"
-            >
-              <ul
-                class="rs-dropdown-menu"
-                role="menu"
-              >
-                <a
-                  href="../scanner/dast"
-                >
-                  <li
-                    class="rs-dropdown-item"
-                  >
-                    <a
-                      class="rs-dropdown-item-content"
-                      tabindex="-1"
-                      title="Dynamic Application Security Testing"
-                    >
-                      DAST
-                    </a>
-                  </li>
-                </a>
-                <a
-                  href="../scanner/sast"
-                >
-                  <li
-                    class="rs-dropdown-item"
-                  >
-                    <a
-                      class="rs-dropdown-item-content"
-                      tabindex="-1"
-                      title="Static Application Security Testing"
-                    >
-                      SAST
-                    </a>
-                  </li>
-                </a>
-              </ul>
-              <a
-                class="rs-btn rs-btn-subtle rs-dropdown-toggle"
-                tabindex="0"
-              >
-                Scanners
-                <span
-                  class="rs-dropdown-toggle-caret"
-                />
-                <span
-                  class="rs-ripple-pond"
-                >
-                  <span
-                    class="rs-ripple"
-                  />
-                </span>
-              </a>
-            </li>
-            <a
-              href="https://github.com/SasanLabs/VulnerableApp-facade"
-            >
+          <div
+            class="rs-nav rs-nav-default rs-navbar-nav rs-nav-horizontal"
+          >
+            <ul>
               <li
                 class="rs-nav-item"
               >
@@ -159,11 +37,9 @@ exports[`Header renders correctly 1`] = `
                   role="button"
                   tabindex="0"
                 >
-                  <i
-                    class="rs-icon rs-icon-github"
-                    role="img"
-                  />
-                  Github
+                  <b>
+                    Owasp VulnerableApp-Facade
+                  </b>
                   <span
                     class="rs-ripple-pond"
                   >
@@ -173,89 +49,289 @@ exports[`Header renders correctly 1`] = `
                   </span>
                 </a>
               </li>
-            </a>
-            <li
-              class="rs-dropdown rs-dropdown-placement-bottom-start"
-              role="menu"
-            >
-              <ul
-                class="rs-dropdown-menu"
+            </ul>
+          </div>
+          <div
+            class="rs-nav rs-nav-default rs-navbar-nav rs-navbar-right rs-nav-horizontal"
+          >
+            <ul>
+              <li
+                class="rs-nav-item"
+                style="padding: 0px 5px;"
+              >
+                <a
+                  class="rs-nav-item-content"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    style="display: flex; align-items: center; height: 20px;"
+                  >
+                    <div
+                      style="display: flex; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); height: 36px;"
+                    >
+                      <button
+                        style="padding: 0px 16px; background: transparent; color: rgb(255, 255, 255); cursor: pointer; opacity: 1; border-radius: 6px 0 0 6px; transition: all 0.2s;"
+                      >
+                        Challenge Mode
+                      </button>
+                      <button
+                        style="padding: 0px 16px; border-left: 1px solid rgba(255,255,255,0.4); background: rgb(252, 115, 3); color: rgb(255, 255, 255); cursor: pointer; display: flex; align-items: center; border-radius: 0 6px 6px 0; transition: all 0.2s;"
+                      >
+                        Scanner Mode
+                      </button>
+                    </div>
+                  </div>
+                  <span
+                    class="rs-ripple-pond"
+                  >
+                    <span
+                      class="rs-ripple"
+                    />
+                  </span>
+                </a>
+              </li>
+              <li
+                class="rs-nav-item"
+              >
+                <a
+                  class="rs-nav-item-content"
+                  role="button"
+                  tabindex="0"
+                >
+                  <i
+                    class="rs-icon rs-icon-home"
+                    role="img"
+                  />
+                  Home
+                  <span
+                    class="rs-ripple-pond"
+                  >
+                    <span
+                      class="rs-ripple"
+                    />
+                  </span>
+                </a>
+              </li>
+              <li
+                class="rs-nav-item"
+              >
+                <a
+                  class="rs-nav-item-content"
+                  role="button"
+                  tabindex="0"
+                >
+                  About Us
+                  <span
+                    class="rs-ripple-pond"
+                  >
+                    <span
+                      class="rs-ripple"
+                    />
+                  </span>
+                </a>
+              </li>
+              <li
+                class="rs-dropdown rs-dropdown-placement-bottom-start"
                 role="menu"
               >
-                <a
-                  href="https://github.com/SasanLabs/VulnerableApp"
+                <ul
+                  class="rs-dropdown-menu"
+                  role="menu"
                 >
-                  <li
-                    class="rs-dropdown-item rs-dropdown-item-with-icon"
+                  <a
+                    href="../scanner/dast"
                   >
-                    <a
-                      class="rs-dropdown-item-content"
-                      tabindex="-1"
+                    <li
+                      class="rs-dropdown-item"
                     >
-                      <i
-                        class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                        role="img"
-                      />
-                      Owasp VulnerableApp
-                    </a>
-                  </li>
-                </a>
-                <a
-                  href="https://github.com/SasanLabs/owasp-zap-jwt-addon"
-                >
-                   
-                  <li
-                    class="rs-dropdown-item rs-dropdown-item-with-icon"
+                      <a
+                        class="rs-dropdown-item-content"
+                        tabindex="-1"
+                        title="Dynamic Application Security Testing"
+                      >
+                        DAST
+                      </a>
+                    </li>
+                  </a>
+                  <a
+                    href="../scanner/sast"
                   >
-                    <a
-                      class="rs-dropdown-item-content"
-                      tabindex="-1"
+                    <li
+                      class="rs-dropdown-item"
                     >
-                      <i
-                        class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                        role="img"
-                      />
-                      ZAP JWT Addon
-                    </a>
-                  </li>
-                </a>
+                      <a
+                        class="rs-dropdown-item-content"
+                        tabindex="-1"
+                        title="Static Application Security Testing"
+                      >
+                        SAST
+                      </a>
+                    </li>
+                  </a>
+                </ul>
                 <a
-                  href="https://github.com/SasanLabs/owasp-zap-fileupload-addon"
+                  class="rs-btn rs-btn-subtle rs-dropdown-toggle"
+                  tabindex="0"
                 >
-                  <li
-                    class="rs-dropdown-item rs-dropdown-item-with-icon"
-                  >
-                    <a
-                      class="rs-dropdown-item-content"
-                      tabindex="-1"
-                    >
-                      <i
-                        class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                        role="img"
-                      />
-                      ZAP FileUpload Addon
-                    </a>
-                  </li>
-                </a>
-              </ul>
-              <a
-                class="rs-btn rs-btn-subtle rs-dropdown-toggle"
-                tabindex="0"
-              >
-                Projects by SasanLabs
-                <span
-                  class="rs-dropdown-toggle-caret"
-                />
-                <span
-                  class="rs-ripple-pond"
-                >
+                  Scanners
                   <span
-                    class="rs-ripple"
+                    class="rs-dropdown-toggle-caret"
                   />
-                </span>
+                  <span
+                    class="rs-ripple-pond"
+                  >
+                    <span
+                      class="rs-ripple"
+                    />
+                  </span>
+                </a>
+              </li>
+              <a
+                href="https://github.com/SasanLabs/VulnerableApp-facade"
+              >
+                <li
+                  class="rs-nav-item"
+                >
+                  <a
+                    class="rs-nav-item-content"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <i
+                      class="rs-icon rs-icon-github"
+                      role="img"
+                    />
+                    Github
+                    <span
+                      class="rs-ripple-pond"
+                    >
+                      <span
+                        class="rs-ripple"
+                      />
+                    </span>
+                  </a>
+                </li>
               </a>
-            </li>
-          </ul>
+              <li
+                class="rs-dropdown rs-dropdown-placement-bottom-start"
+                role="menu"
+              >
+                <ul
+                  class="rs-dropdown-menu"
+                  role="menu"
+                >
+                  <a
+                    href="https://github.com/SasanLabs/VulnerableApp"
+                  >
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
+                    >
+                      <a
+                        class="rs-dropdown-item-content"
+                        tabindex="-1"
+                      >
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        Owasp VulnerableApp
+                      </a>
+                    </li>
+                  </a>
+                  <a
+                    href="https://github.com/SasanLabs/LLMForge"
+                  >
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
+                    >
+                      <a
+                        class="rs-dropdown-item-content"
+                        tabindex="-1"
+                      >
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        LLMForge
+                      </a>
+                    </li>
+                  </a>
+                  <a
+                    href="https://github.com/SasanLabs/SAFE"
+                  >
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
+                    >
+                      <a
+                        class="rs-dropdown-item-content"
+                        tabindex="-1"
+                      >
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        Security Awareness for Everyone
+                      </a>
+                    </li>
+                  </a>
+                  <a
+                    href="https://github.com/SasanLabs/owasp-zap-jwt-addon"
+                  >
+                     
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
+                    >
+                      <a
+                        class="rs-dropdown-item-content"
+                        tabindex="-1"
+                      >
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        ZAP JWT Addon
+                      </a>
+                    </li>
+                  </a>
+                  <a
+                    href="https://github.com/SasanLabs/owasp-zap-fileupload-addon"
+                  >
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
+                    >
+                      <a
+                        class="rs-dropdown-item-content"
+                        tabindex="-1"
+                      >
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        ZAP FileUpload Addon
+                      </a>
+                    </li>
+                  </a>
+                </ul>
+                <a
+                  class="rs-btn rs-btn-subtle rs-dropdown-toggle"
+                  tabindex="0"
+                >
+                  Projects by SasanLabs
+                  <span
+                    class="rs-dropdown-toggle-caret"
+                  />
+                  <span
+                    class="rs-ripple-pond"
+                  >
+                    <span
+                      class="rs-ripple"
+                    />
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

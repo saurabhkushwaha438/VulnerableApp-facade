@@ -17,7 +17,7 @@ exports[`Footer renders correctly 1`] = `
           data-testid="FOOTER_COPYRIGHT_TEXT"
         >
           © Copyright 
-          2023
+          2026
           , SasanLabs
         </div>
       </div>

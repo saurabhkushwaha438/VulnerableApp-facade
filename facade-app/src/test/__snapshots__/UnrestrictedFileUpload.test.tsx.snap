@@ -39,17 +39,13 @@ exports[`UnrestrictedFileUpload content should render correctly 1`] = `
             >
               <div
                 class="VulnerableApp-Facade-Content"
+                data-testid="VULNERABILITY_CONTENT_DESCRIPTION"
               >
-                <div
-                  data-testid="VULNERABILITY_CONTENT_DESCRIPTION"
-                  id="__vuln_description__"
-                />
+                <div />
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
         <div
           class="VulnerableApp-Facade-Content-Practice-Vulnerability-Header rs-panel rs-panel-default"
         >
@@ -73,7 +69,6 @@ exports[`UnrestrictedFileUpload content should render correctly 1`] = `
             </div>
           </div>
         </div>
-        <div />
       </div>
     </div>
   </div>
