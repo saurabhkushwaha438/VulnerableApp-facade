@@ -11,7 +11,9 @@ describe("Header", () => {
       activateAboutUsPage: false,
       activateHomePage: true,
       showHints: false,
+      isChallengeModeEnabled: false,
     };
+
     const { container } = render(
       <Header setGlobalState={mock} globalState={state} />
     );
@@ -26,7 +28,9 @@ describe("Header", () => {
       activateAboutUsPage: false,
       activateHomePage: true,
       showHints: false,
+      isChallengeModeEnabled: false,
     };
+
     render(<Header setGlobalState={mock} globalState={state} />);
 
     const image = screen.getAllByRole("img")[0];
@@ -42,7 +46,9 @@ describe("Header", () => {
       activateAboutUsPage: false,
       activateHomePage: true,
       showHints: false,
+      isChallengeModeEnabled: false,
     };
+
     render(<Header setGlobalState={mock} globalState={state} />);
 
     const item = screen.getByText("Owasp VulnerableApp-Facade");
@@ -57,7 +63,9 @@ describe("Header", () => {
       activateAboutUsPage: false,
       activateHomePage: true,
       showHints: false,
+      isChallengeModeEnabled: false,
     };
+
     render(<Header setGlobalState={mock} globalState={state} />);
 
     const homeIcon = screen.getAllByRole("img")[1];
@@ -74,7 +82,9 @@ describe("Header", () => {
       activateAboutUsPage: false,
       activateHomePage: true,
       showHints: false,
+      isChallengeModeEnabled: false,
     };
+
     render(<Header setGlobalState={mock} globalState={state} />);
 
     const text = screen.getByText("About Us");
@@ -89,11 +99,12 @@ describe("Header", () => {
       activateAboutUsPage: false,
       activateHomePage: true,
       showHints: false,
+      isChallengeModeEnabled: false,
     };
+
     render(<Header setGlobalState={mock} globalState={state} />);
 
-    const link = screen.getAllByRole("link")[2];
-    const githubIcon = screen.getAllByRole("img")[2];
+    const link = screen.getByRole("button", { name: /github/i });
     const text = screen.getByText("Github");
 
     expect(link).toBeInTheDocument();
@@ -101,7 +112,6 @@ describe("Header", () => {
       "href",
       "https://github.com/SasanLabs/VulnerableApp-facade"
     );
-    expect(githubIcon).toBeInTheDocument();
     expect(text).toBeInTheDocument();
   });
 
@@ -113,7 +123,9 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       render(<Header setGlobalState={mock} globalState={state} />);
 
       const dropDownTitle = screen.getByText("Projects by SasanLabs");
@@ -128,13 +140,15 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       render(<Header setGlobalState={mock} globalState={state} />);
 
       const owaspLink = screen.getByRole("link", {
         name: "Owasp VulnerableApp",
       });
-      const owaspIcon = screen.getAllByRole("img")[3];
+
       const text = screen.getByText("Owasp VulnerableApp");
 
       expect(owaspLink).toBeInTheDocument();
@@ -142,7 +156,6 @@ describe("Header", () => {
         "href",
         "https://github.com/SasanLabs/VulnerableApp"
       );
-      expect(owaspIcon).toBeInTheDocument();
       expect(text).toBeInTheDocument();
     });
 
@@ -153,11 +166,13 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       render(<Header setGlobalState={mock} globalState={state} />);
 
       const zapLink = screen.getByRole("link", { name: "LLMForge" });
-      const zapIcon = screen.getAllByRole("img")[4];
+
       const text = screen.getByText("LLMForge");
 
       expect(zapLink).toBeInTheDocument();
@@ -165,7 +180,6 @@ describe("Header", () => {
         "href",
         "https://github.com/SasanLabs/LLMForge"
       );
-      expect(zapIcon).toBeInTheDocument();
       expect(text).toBeInTheDocument();
     });
 
@@ -176,19 +190,22 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       render(<Header setGlobalState={mock} globalState={state} />);
 
-      const zapLink = screen.getAllByRole("link")[5];
-      const zapIcon = screen.getAllByRole("img")[5];
+      const safeLink = screen.getByRole("link", {
+        name: /security awareness for everyone/i,
+      });
+
       const text = screen.getByText("Security Awareness for Everyone");
 
-      expect(zapLink).toBeInTheDocument();
-      expect(zapLink).toHaveAttribute(
+      expect(safeLink).toBeInTheDocument();
+      expect(safeLink).toHaveAttribute(
         "href",
         "https://github.com/SasanLabs/SAFE"
       );
-      expect(zapIcon).toBeInTheDocument();
       expect(text).toBeInTheDocument();
     });
   });
@@ -201,7 +218,9 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       render(<Header setGlobalState={mock} globalState={state} />);
 
       const dropDownTitle = screen.getByText("Scanners");
@@ -216,9 +235,13 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       render(<Header setGlobalState={mock} globalState={state} />);
+
       const text = screen.getByText("DAST");
+
       expect(text).toBeInTheDocument();
     });
 
@@ -229,9 +252,13 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
-      render(<Header setGlobalState={mock} globalState={state}></Header>);
+
+      render(<Header setGlobalState={mock} globalState={state} />);
+
       const text = screen.getByText("SAST");
+
       expect(text).toBeInTheDocument();
     });
 
@@ -242,9 +269,13 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       const dast = "Dynamic Application Security Testing";
-      render(<Header setGlobalState={mock} globalState={state}></Header>);
+
+      render(<Header setGlobalState={mock} globalState={state} />);
+
       expect(screen.getByTitle(dast)).toBeInTheDocument();
     });
 
@@ -255,9 +286,13 @@ describe("Header", () => {
         activateAboutUsPage: false,
         activateHomePage: true,
         showHints: false,
+        isChallengeModeEnabled: false,
       };
+
       const sast = "Static Application Security Testing";
-      render(<Header setGlobalState={mock} globalState={state}></Header>);
+
+      render(<Header setGlobalState={mock} globalState={state} />);
+
       expect(screen.getByTitle(sast)).toBeInTheDocument();
     });
   });

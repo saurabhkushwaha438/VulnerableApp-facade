@@ -142,36 +142,30 @@ exports[`App renders correctly 1`] = `
                     class="rs-dropdown-menu"
                     role="menu"
                   >
-                    <a
-                      href="../scanner/dast"
+                    <li
+                      class="rs-dropdown-item"
                     >
-                      <li
-                        class="rs-dropdown-item"
+                      <a
+                        class="rs-dropdown-item-content"
+                        href="../scanner/dast"
+                        tabindex="-1"
+                        title="Dynamic Application Security Testing"
                       >
-                        <a
-                          class="rs-dropdown-item-content"
-                          tabindex="-1"
-                          title="Dynamic Application Security Testing"
-                        >
-                          DAST
-                        </a>
-                      </li>
-                    </a>
-                    <a
-                      href="../scanner/sast"
+                        DAST
+                      </a>
+                    </li>
+                    <li
+                      class="rs-dropdown-item"
                     >
-                      <li
-                        class="rs-dropdown-item"
+                      <a
+                        class="rs-dropdown-item-content"
+                        href="../scanner/sast"
+                        tabindex="-1"
+                        title="Static Application Security Testing"
                       >
-                        <a
-                          class="rs-dropdown-item-content"
-                          tabindex="-1"
-                          title="Static Application Security Testing"
-                        >
-                          SAST
-                        </a>
-                      </li>
-                    </a>
+                        SAST
+                      </a>
+                    </li>
                   </ul>
                   <a
                     class="rs-btn rs-btn-subtle rs-dropdown-toggle"
@@ -190,32 +184,29 @@ exports[`App renders correctly 1`] = `
                     </span>
                   </a>
                 </li>
-                <a
-                  href="https://github.com/SasanLabs/VulnerableApp-facade"
+                <li
+                  class="rs-nav-item"
                 >
-                  <li
-                    class="rs-nav-item"
+                  <a
+                    class="rs-nav-item-content"
+                    href="https://github.com/SasanLabs/VulnerableApp-facade"
+                    role="button"
+                    tabindex="0"
                   >
-                    <a
-                      class="rs-nav-item-content"
-                      role="button"
-                      tabindex="0"
+                    <i
+                      class="rs-icon rs-icon-github"
+                      role="img"
+                    />
+                    Github
+                    <span
+                      class="rs-ripple-pond"
                     >
-                      <i
-                        class="rs-icon rs-icon-github"
-                        role="img"
-                      />
-                      Github
                       <span
-                        class="rs-ripple-pond"
-                      >
-                        <span
-                          class="rs-ripple"
-                        />
-                      </span>
-                    </a>
-                  </li>
-                </a>
+                        class="rs-ripple"
+                      />
+                    </span>
+                  </a>
+                </li>
                 <li
                   class="rs-dropdown rs-dropdown-placement-bottom-start"
                   role="menu"
@@ -224,97 +215,81 @@ exports[`App renders correctly 1`] = `
                     class="rs-dropdown-menu"
                     role="menu"
                   >
-                    <a
-                      href="https://github.com/SasanLabs/VulnerableApp"
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
                     >
-                      <li
-                        class="rs-dropdown-item rs-dropdown-item-with-icon"
+                      <a
+                        class="rs-dropdown-item-content"
+                        href="https://github.com/SasanLabs/VulnerableApp"
+                        tabindex="-1"
                       >
-                        <a
-                          class="rs-dropdown-item-content"
-                          tabindex="-1"
-                        >
-                          <i
-                            class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                            role="img"
-                          />
-                          Owasp VulnerableApp
-                        </a>
-                      </li>
-                    </a>
-                    <a
-                      href="https://github.com/SasanLabs/LLMForge"
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        Owasp VulnerableApp
+                      </a>
+                    </li>
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
                     >
-                      <li
-                        class="rs-dropdown-item rs-dropdown-item-with-icon"
+                      <a
+                        class="rs-dropdown-item-content"
+                        href="https://github.com/SasanLabs/LLMForge"
+                        tabindex="-1"
                       >
-                        <a
-                          class="rs-dropdown-item-content"
-                          tabindex="-1"
-                        >
-                          <i
-                            class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                            role="img"
-                          />
-                          LLMForge
-                        </a>
-                      </li>
-                    </a>
-                    <a
-                      href="https://github.com/SasanLabs/SAFE"
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        LLMForge
+                      </a>
+                    </li>
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
                     >
-                      <li
-                        class="rs-dropdown-item rs-dropdown-item-with-icon"
+                      <a
+                        class="rs-dropdown-item-content"
+                        href="https://github.com/SasanLabs/SAFE"
+                        tabindex="-1"
                       >
-                        <a
-                          class="rs-dropdown-item-content"
-                          tabindex="-1"
-                        >
-                          <i
-                            class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                            role="img"
-                          />
-                          Security Awareness for Everyone
-                        </a>
-                      </li>
-                    </a>
-                    <a
-                      href="https://github.com/SasanLabs/owasp-zap-jwt-addon"
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        Security Awareness for Everyone
+                      </a>
+                    </li>
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
                     >
-                       
-                      <li
-                        class="rs-dropdown-item rs-dropdown-item-with-icon"
+                      <a
+                        class="rs-dropdown-item-content"
+                        href="https://github.com/SasanLabs/owasp-zap-jwt-addon"
+                        tabindex="-1"
                       >
-                        <a
-                          class="rs-dropdown-item-content"
-                          tabindex="-1"
-                        >
-                          <i
-                            class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                            role="img"
-                          />
-                          ZAP JWT Addon
-                        </a>
-                      </li>
-                    </a>
-                    <a
-                      href="https://github.com/SasanLabs/owasp-zap-fileupload-addon"
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        ZAP JWT Addon
+                      </a>
+                    </li>
+                    <li
+                      class="rs-dropdown-item rs-dropdown-item-with-icon"
                     >
-                      <li
-                        class="rs-dropdown-item rs-dropdown-item-with-icon"
+                      <a
+                        class="rs-dropdown-item-content"
+                        href="https://github.com/SasanLabs/owasp-zap-fileupload-addon"
+                        tabindex="-1"
                       >
-                        <a
-                          class="rs-dropdown-item-content"
-                          tabindex="-1"
-                        >
-                          <i
-                            class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
-                            role="img"
-                          />
-                          ZAP FileUpload Addon
-                        </a>
-                      </li>
-                    </a>
+                        <i
+                          class="rs-dropdown-item-menu-icon rs-icon rs-icon-github"
+                          role="img"
+                        />
+                        ZAP FileUpload Addon
+                      </a>
+                    </li>
                   </ul>
                   <a
                     class="rs-btn rs-btn-subtle rs-dropdown-toggle"

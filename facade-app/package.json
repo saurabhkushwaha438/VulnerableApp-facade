@@ -11,6 +11,7 @@
     "@types/node": "^12.20.13",
     "@types/react": "^17.0.6",
     "@types/react-dom": "^17.0.5",
+    "dompurify": "^3.4.2",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -46,10 +47,10 @@
   },
   "jest": {
     "collectCoverageFrom": [
-        "<rootDir>/src/**/*.{js,ts,jsx,tsx}",
-        "!<rootDir>/src/test/**",
-        "!<rootDir>/src/interface/*",
-        "!<rootDir>/src/react-app-env.d.ts"
+      "<rootDir>/src/**/*.{js,ts,jsx,tsx}",
+      "!<rootDir>/src/test/**",
+      "!<rootDir>/src/interface/*",
+      "!<rootDir>/src/react-app-env.d.ts"
     ]
   },
   "devDependencies": {

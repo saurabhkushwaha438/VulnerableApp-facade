@@ -3,6 +3,7 @@ import { Challenge } from "../interface/State";
 import { Panel as RSuitePanel, Button } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.min.css";
 import "../styles/ChallengeCard.css";
+import DOMPurify from "dompurify";
 
 interface Hint {
   order: number;
@@ -72,7 +73,9 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
               {hints.slice(0, revealedHints).map((hint, hIndex) => (
                 <li
                   key={hIndex}
-                  dangerouslySetInnerHTML={{ __html: hint.text }}
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(hint.text),
+                  }}
                   className="hint-list-item"
                 />
               ))}

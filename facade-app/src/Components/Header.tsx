@@ -195,64 +195,63 @@ export default class Header extends React.Component<Props, {}> {
 
                 {/* Restored Original Scanners Dropdown */}
                 <RSuiteDropDown title="Scanners">
-                  <a href="../scanner/dast">
-                    <RSuiteDropDown.Item title="Dynamic Application Security Testing">
-                      DAST
-                    </RSuiteDropDown.Item>
-                  </a>
-                  <a href="../scanner/sast">
-                    <RSuiteDropDown.Item title="Static Application Security Testing">
-                      SAST
-                    </RSuiteDropDown.Item>
-                  </a>
-                </RSuiteDropDown>
-
-                <a href="https://github.com/SasanLabs/VulnerableApp-facade">
-                  <RSuiteNav.Item
-                    icon={<RSuiteIcon icon="github" role={"img"} />}
+                  <RSuiteDropDown.Item
+                    href="../scanner/dast"
+                    title="Dynamic Application Security Testing"
                   >
-                    Github
-                  </RSuiteNav.Item>
-                </a>
+                    DAST
+                  </RSuiteDropDown.Item>
+
+                  <RSuiteDropDown.Item
+                    href="../scanner/sast"
+                    title="Static Application Security Testing"
+                  >
+                    SAST
+                  </RSuiteDropDown.Item>
+                </RSuiteDropDown>
+                <RSuiteNav.Item
+                  href="https://github.com/SasanLabs/VulnerableApp-facade"
+                  icon={<RSuiteIcon icon="github" role={"img"} />}
+                >
+                  Github
+                </RSuiteNav.Item>
 
                 {/* Restored Original Projects Dropdown */}
                 <RSuiteDropDown title="Projects by SasanLabs">
-                  <a href="https://github.com/SasanLabs/VulnerableApp">
-                    <RSuiteDropDown.Item
-                      icon={<RSuiteIcon icon="github" role={"img"} />}
-                    >
-                      Owasp VulnerableApp
-                    </RSuiteDropDown.Item>
-                  </a>
-                  <a href="https://github.com/SasanLabs/LLMForge">
-                    <RSuiteDropDown.Item
-                      icon={<RSuiteIcon icon="github" role={"img"} />}
-                    >
-                      LLMForge
-                    </RSuiteDropDown.Item>
-                  </a>
-                  <a href="https://github.com/SasanLabs/SAFE">
-                    <RSuiteDropDown.Item
-                      icon={<RSuiteIcon icon="github" role={"img"} />}
-                    >
-                      Security Awareness for Everyone
-                    </RSuiteDropDown.Item>
-                  </a>
-                  <a href="https://github.com/SasanLabs/owasp-zap-jwt-addon">
-                    {" "}
-                    <RSuiteDropDown.Item
-                      icon={<RSuiteIcon icon="github" role={"img"} />}
-                    >
-                      ZAP JWT Addon
-                    </RSuiteDropDown.Item>
-                  </a>
-                  <a href="https://github.com/SasanLabs/owasp-zap-fileupload-addon">
-                    <RSuiteDropDown.Item
-                      icon={<RSuiteIcon icon="github" role={"img"} />}
-                    >
-                      ZAP FileUpload Addon
-                    </RSuiteDropDown.Item>
-                  </a>
+                  <RSuiteDropDown.Item
+                    href="https://github.com/SasanLabs/VulnerableApp"
+                    icon={<RSuiteIcon icon="github" role={"img"} />}
+                  >
+                    Owasp VulnerableApp
+                  </RSuiteDropDown.Item>
+
+                  <RSuiteDropDown.Item
+                    href="https://github.com/SasanLabs/LLMForge"
+                    icon={<RSuiteIcon icon="github" role={"img"} />}
+                  >
+                    LLMForge
+                  </RSuiteDropDown.Item>
+
+                  <RSuiteDropDown.Item
+                    href="https://github.com/SasanLabs/SAFE"
+                    icon={<RSuiteIcon icon="github" role={"img"} />}
+                  >
+                    Security Awareness for Everyone
+                  </RSuiteDropDown.Item>
+
+                  <RSuiteDropDown.Item
+                    href="https://github.com/SasanLabs/owasp-zap-jwt-addon"
+                    icon={<RSuiteIcon icon="github" role={"img"} />}
+                  >
+                    ZAP JWT Addon
+                  </RSuiteDropDown.Item>
+
+                  <RSuiteDropDown.Item
+                    href="https://github.com/SasanLabs/owasp-zap-fileupload-addon"
+                    icon={<RSuiteIcon icon="github" role={"img"} />}
+                  >
+                    ZAP FileUpload Addon
+                  </RSuiteDropDown.Item>
                 </RSuiteDropDown>
               </RSuiteNav>
             </RSuiteNavBar.Body>
