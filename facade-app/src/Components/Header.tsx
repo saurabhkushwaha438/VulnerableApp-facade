@@ -13,7 +13,6 @@ import { Props } from "../interface/Props";
 import "../styles/Header.css";
 
 export default class Header extends React.Component<Props, {}> {
-  
   private isChallengeAvailable = (): boolean => {
     const { globalState } = this.props;
     const {

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Challenge } from "../interface/State";
 import { Panel as RSuitePanel, Button } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.min.css";
+import "../styles/ChallengeCard.css";
 
-// Interface definitions to map to the new mock json
 interface Hint {
   order: number;
   text: string;
@@ -19,6 +19,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
   challengeNumber,
 }) => {
   const [revealedHints, setRevealedHints] = useState(0);
+  const [isPayloadRevealed, setIsPayloadRevealed] = useState(false);
 
   const handleShowHint = () => {
     setRevealedHints((prev) => prev + 1);
@@ -26,13 +27,17 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
 
   const handleHideHint = () => {
     setRevealedHints((prev) => (prev > 0 ? prev - 1 : 0));
+    setIsPayloadRevealed(false);
+  };
+
+  const handleShowPayload = () => {
+    setIsPayloadRevealed(true);
   };
 
   const headerText = challengeNumber
     ? `Challenge ${challengeNumber}`
     : "Challenge";
 
-  // Backwards compatibility with the old hintCards format
   let hints = challenge.hints || [];
   if (hints.length === 0 && (challenge as any).hintCards) {
     hints = (challenge as any).hintCards
@@ -46,86 +51,52 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
   return (
     <RSuitePanel
       header={
-        <span
-          style={{ color: "#0d325e", fontSize: "18px", fontWeight: "bold" }}
-        >
-          <span style={{ marginRight: "10px" }}>🧩</span>
+        <span className="challenge-card-header">
+          <span className="challenge-card-icon">🧩</span>
           {headerText}
         </span>
       }
-      className="VulnerableApp-Facade-Content-Challenge-Card"
-      collapsible={true}
+      className="VulnerableApp-Facade-Content-Challenge-Card challenge-card-panel"
       defaultExpanded={true}
       bordered
-      style={{
-        opacity: 1,
-        filter: "none",
-        backgroundColor: "white",
-        color: "#333",
-        borderColor: "#e1e4e8",
-      }}
     >
-      <div
-        className="challenge-text"
-        style={{ fontSize: "15px", color: "#333", marginBottom: "15px" }}
-      >
+      <div className="challenge-text">
         <p>{challenge.challengeText}</p>
       </div>
 
       {hints.length > 0 && revealedHints > 0 && (
-        <div
-          style={{
-            backgroundColor: "#fffdee",
-            border: "1px solid #f6eed6",
-            borderRadius: "4px",
-            marginBottom: "10px",
-          }}
-        >
-          <div
-            style={{
-              padding: "10px 15px",
-              borderBottom: "1px solid #f6eed6",
-              fontWeight: "bold",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            💡 Hint
-          </div>
-          <div className="challenge-hints-section" style={{ padding: "15px" }}>
-            <ul style={{ color: "#333", paddingLeft: "20px", margin: 0 }}>
+        <div className="hint-container">
+          <div className="hint-header">💡 Hint</div>
+          <div className="challenge-hints-section">
+            <ul className="hint-list">
               {hints.slice(0, revealedHints).map((hint, hIndex) => (
                 <li
                   key={hIndex}
                   dangerouslySetInnerHTML={{ __html: hint.text }}
-                  style={{ marginBottom: "5px" }}
+                  className="hint-list-item"
                 />
               ))}
             </ul>
 
             {revealedHints === hints.length && challenge.payload && (
-              <div
-                style={{
-                  marginTop: "15px",
-                  padding: "10px",
-                  backgroundColor: "#f6f8fa",
-                  border: "1px solid #e1e4e8",
-                  borderRadius: "4px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <span style={{ marginRight: "8px" }}>🧪</span>
-                <strong>Payload: </strong>
-                <code
-                  style={{
-                    marginLeft: "10px",
-                    backgroundColor: "transparent",
-                    padding: 0,
-                  }}
-                >
-                  {challenge.payload.value}
-                </code>
+              <div className="payload-wrapper">
+                {!isPayloadRevealed ? (
+                  <Button
+                    appearance="primary"
+                    onClick={handleShowPayload}
+                    className="btn-reveal-payload"
+                  >
+                    Reveal Payload
+                  </Button>
+                ) : (
+                  <div className="payload-container">
+                    <span className="payload-icon">🧪</span>
+                    <strong>Payload: </strong>
+                    <code className="payload-code">
+                      {challenge.payload.value}
+                    </code>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -133,19 +104,12 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
       )}
 
       {hints.length > 0 && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: "15px",
-          }}
-        >
+        <div className="action-buttons-container">
           {revealedHints > 0 ? (
             <Button
               appearance="link"
               onClick={handleHideHint}
-              style={{ padding: 0 }}
+              className="btn-hide-hint"
             >
               Hide Hint
             </Button>
@@ -157,11 +121,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
             <Button
               appearance="ghost"
               onClick={handleShowHint}
-              style={{
-                color: "#333",
-                borderColor: "#ccc",
-                borderRadius: "4px",
-              }}
+              className="btn-show-hint"
             >
               Show Hint &gt;
             </Button>
@@ -170,20 +130,22 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
       )}
 
       {!hints.length && challenge.payload && (
-        <div
-          style={{
-            marginTop: "15px",
-            padding: "10px",
-            backgroundColor: "#f6f8fa",
-            border: "1px solid #e1e4e8",
-            borderRadius: "4px",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <span style={{ marginRight: "8px" }}>🧪</span>
-          <strong>Payload: </strong>
-          <code style={{ marginLeft: "10px" }}>{challenge.payload.value}</code>
+        <div className="payload-wrapper">
+          {!isPayloadRevealed ? (
+            <Button
+              appearance="primary"
+              onClick={handleShowPayload}
+              className="btn-reveal-payload"
+            >
+              Reveal Payload
+            </Button>
+          ) : (
+            <div className="payload-container">
+              <span className="payload-icon">🧪</span>
+              <strong>Payload: </strong>
+              <code className="payload-code">{challenge.payload.value}</code>
+            </div>
+          )}
         </div>
       )}
     </RSuitePanel>

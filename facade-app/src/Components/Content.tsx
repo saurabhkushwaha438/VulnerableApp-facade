@@ -92,6 +92,15 @@ export class Content extends React.Component<Props, ContentState> {
     const isChallengeAvailable = challengeCards.length > 0;
     const showChallengeMode = isChallengeModeEnabled && isChallengeAvailable;
 
+    // --- MASONRY LAYOUT LOGIC ---
+    // Left column gets evens (0, 2, 4...), Right gets odds (1, 3, 5...)
+    const leftColumnCards = challengeCards.filter(
+      (_, index) => index % 2 === 0
+    );
+    const rightColumnCards = challengeCards.filter(
+      (_, index) => index % 2 !== 0
+    );
+
     return (
       <div className="VulnerableApp-Facade-Info">
         {activateHomePage ? (
@@ -111,7 +120,10 @@ export class Content extends React.Component<Props, ContentState> {
                     collapsible={true}
                     defaultExpanded={true}
                   >
-                    <div className="VulnerableApp-Facade-Content"  data-testid="VULNERABILITY_CONTENT_DESCRIPTION">
+                    <div
+                      className="VulnerableApp-Facade-Content"
+                      data-testid="VULNERABILITY_CONTENT_DESCRIPTION"
+                    >
                       <div
                         dangerouslySetInnerHTML={{
                           __html: this.state?.description || "",
@@ -136,15 +148,49 @@ export class Content extends React.Component<Props, ContentState> {
 
                 {/* 3. Challenge Cards (Challenge Mode Only) */}
                 {showChallengeMode && (
-                  <div style={{ marginTop: "15px" }}>
-                    {challengeCards.map((challenge, index) => (
-                      <div key={index} style={{ marginBottom: "15px" }}>
+                  <div
+                    style={{
+                      margin: "15px",
+                      display: "flex",
+                      gap: "15px",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    {/* Left Column */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "15px",
+                        flex: 1,
+                      }}
+                    >
+                      {leftColumnCards.map((challenge, index) => (
                         <ChallengeCard
+                          key={`left-${index}`}
                           challenge={challenge}
-                          challengeNumber={index + 1}
+                          challengeNumber={index * 2 + 1}
                         />
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+
+                    {/* Right Column */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "15px",
+                        flex: 1,
+                      }}
+                    >
+                      {rightColumnCards.map((challenge, index) => (
+                        <ChallengeCard
+                          key={`right-${index}`}
+                          challenge={challenge}
+                          challengeNumber={index * 2 + 2}
+                        />
+                      ))}
+                    </div>
                   </div>
                 )}
 

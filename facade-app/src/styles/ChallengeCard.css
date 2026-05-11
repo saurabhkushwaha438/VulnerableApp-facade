@@ -1,0 +1,99 @@
+.challenge-card-panel {
+  opacity: 1;
+  filter: none;
+  background-color: white;
+  color: #333;
+  border-color: #e1e4e8;
+}
+
+.challenge-card-header {
+  color: #0d325e;
+  font-size: 1.125rem; /* 18px */
+  font-weight: bold;
+}
+
+.challenge-card-icon {
+  margin-right: 0.625rem; /* 10px */
+}
+
+.challenge-text {
+  font-size: 0.9375rem; /* 15px */
+  color: #333;
+  margin-bottom: 0.9375rem; /* 15px */
+}
+
+.hint-container {
+  background-color: #fffdee;
+  border: 1px solid #f6eed6;
+  border-radius: 0.25rem; /* 4px */
+  margin-bottom: 0.625rem; /* 10px */
+}
+
+.hint-header {
+  padding: 0.625rem 0.9375rem; /* 10px 15px */
+  border-bottom: 1px solid #f6eed6;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.challenge-hints-section {
+  padding: 0.9375rem; /* 15px */
+}
+
+.hint-list {
+  color: #333;
+  padding-left: 1.25rem; /* 20px */
+  margin: 0;
+}
+
+.hint-list-item {
+  margin-bottom: 0.3125rem; /* 5px */
+}
+
+.payload-wrapper {
+  margin-top: 0.9375rem; /* 15px */
+}
+
+.payload-container {
+  padding: 0.625rem; /* 10px */
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 0.25rem; /* 4px */
+  display: flex;
+  align-items: center;
+}
+
+.payload-icon {
+  margin-right: 0.5rem; /* 8px */
+}
+
+.payload-code {
+  margin-left: 0.625rem; /* 10px */
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Specificity added to override default rsuite button styles if necessary */
+.btn-reveal-payload.rs-btn-primary {
+  background-color: #0d325e;
+  color: white;
+  border-radius: 0.25rem; /* 4px */
+}
+
+.action-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.9375rem; /* 15px */
+}
+
+.btn-hide-hint.rs-btn-link {
+  padding: 0;
+}
+
+.btn-show-hint.rs-btn-ghost {
+  color: #333;
+  border-color: #ccc;
+  border-radius: 0.25rem; /* 4px */
+}
