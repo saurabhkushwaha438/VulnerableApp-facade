@@ -47,6 +47,7 @@ export interface Payload {
 export interface Challenge {
   challengeText: string;
   hints?: Array<ChallengeHint>;
+  hintCards?: Array<{ hints: string[] }>;
   payload?: Payload;
 }
 
