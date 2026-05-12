@@ -40,8 +40,14 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({
     : "Challenge";
 
   let hints = challenge.hints || [];
-  if (hints.length === 0 && (challenge as any).hintCards) {
+
+  if (
+    hints.length === 0 &&
+    (challenge as any).hintCards &&
+    Array.isArray((challenge as any).hintCards)
+  ) {
     hints = (challenge as any).hintCards
+      .filter((hc: any) => hc.hints && Array.isArray(hc.hints))
       .flatMap((hc: any) => hc.hints)
       .map((text: string, index: number) => ({
         order: index + 1,

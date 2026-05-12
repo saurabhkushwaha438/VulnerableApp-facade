@@ -3,7 +3,7 @@
 exports[`Header renders correctly 1`] = `
 <div>
   <div
-    style="position: relative; z-index: 9999;"
+    class="header-container"
   >
     <div
       class="rs-header"
@@ -56,8 +56,7 @@ exports[`Header renders correctly 1`] = `
           >
             <ul>
               <li
-                class="rs-nav-item"
-                style="padding: 0px 5px;"
+                class="rs-nav-item mode-nav-item"
               >
                 <a
                   class="rs-nav-item-content"
@@ -65,18 +64,18 @@ exports[`Header renders correctly 1`] = `
                   tabindex="0"
                 >
                   <div
-                    style="display: flex; align-items: center; height: 20px;"
+                    class="mode-toggle-wrapper"
                   >
                     <div
-                      style="display: flex; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); height: 36px;"
+                      class="mode-toggle-container"
                     >
                       <button
-                        style="padding: 0px 16px; background: transparent; color: rgb(255, 255, 255); cursor: pointer; opacity: 1; border-radius: 6px 0 0 6px; transition: all 0.2s;"
+                        class="mode-button challenge-btn  "
                       >
                         Challenge Mode
                       </button>
                       <button
-                        style="padding: 0px 16px; border-left: 1px solid rgba(255,255,255,0.4); background: rgb(252, 115, 3); color: rgb(255, 255, 255); cursor: pointer; display: flex; align-items: center; border-radius: 0 6px 6px 0; transition: all 0.2s;"
+                        class="mode-button scanner-btn mode-button-active"
                       >
                         Scanner Mode
                       </button>

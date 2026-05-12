@@ -46,7 +46,7 @@ export interface Payload {
  */
 export interface Challenge {
   challengeText: string;
-  hints?: Array<ChallengeHint>; // ✅ updated
+  hints?: Array<ChallengeHint>;
   payload?: Payload;
 }
 
@@ -99,4 +99,11 @@ export interface GlobalState {
   activateAboutUsPage: boolean;
   showHints: boolean;
   isChallengeModeEnabled: boolean;
+}
+
+// enum for setting the effective mode
+
+export enum AppMode {
+  CHALLENGE = "CHALLENGE",
+  SCANNER = "SCANNER",
 }

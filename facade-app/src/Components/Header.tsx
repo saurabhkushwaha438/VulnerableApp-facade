@@ -10,6 +10,12 @@ import {
 } from "rsuite";
 
 import { Props } from "../interface/Props";
+import {
+  ApplicationState,
+  VulnerabilityDefinition,
+  LevelInformation,
+  AppMode,
+} from "../interface/State";
 import "../styles/Header.css";
 
 export default class Header extends React.Component<Props, {}> {
@@ -25,17 +31,17 @@ export default class Header extends React.Component<Props, {}> {
     if (!applicationData) return false;
 
     const app = applicationData.find(
-      (a: any) => a.applicationName === activeApplication
+      (a: ApplicationState) => a.applicationName === activeApplication
     );
     if (!app) return false;
 
     const vuln = app.vulnerabilityDefinitions?.find(
-      (v: any) => v.id === activeVulnerability
+      (v: VulnerabilityDefinition) => v.id === activeVulnerability
     );
     if (!vuln) return false;
 
     const level = vuln.levels?.find(
-      (l: any) => l.levelIdentifier === activeLevel
+      (l: LevelInformation) => l.levelIdentifier === activeLevel
     );
     if (!level) return false;
 
@@ -62,11 +68,11 @@ export default class Header extends React.Component<Props, {}> {
 
     const effectiveMode =
       globalState.isChallengeModeEnabled && !isChallengeDisabled
-        ? "challenge"
-        : "scanner";
+        ? AppMode.CHALLENGE
+        : AppMode.SCANNER;
 
     return (
-      <div style={{ position: "relative", zIndex: 9999 }}>
+      <div className="header-container">
         <RSuiteHeader>
           <RSuiteNavBar appearance="inverse">
             <RSuiteNavBar.Header>
@@ -94,22 +100,9 @@ export default class Header extends React.Component<Props, {}> {
               </RSuiteNav>
 
               <RSuiteNav pullRight>
-                <RSuiteNav.Item style={{ padding: "0 5px" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      height: "20px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        borderRadius: "6px",
-                        border: "1px solid rgba(255,255,255,0.4)",
-                        height: "36px",
-                      }}
-                    >
+                <RSuiteNav.Item className="mode-nav-item">
+                  <div className="mode-toggle-wrapper">
+                    <div className="mode-toggle-container">
                       {/* Challenge Mode */}
                       <button
                         disabled={isChallengeDisabled}
@@ -119,26 +112,16 @@ export default class Header extends React.Component<Props, {}> {
                             isChallengeModeEnabled: true,
                           })
                         }
-                        style={{
-                          padding: "0 16px",
-                          border: "none",
-                          background:
-                            effectiveMode === "challenge"
-                              ? "#fc7303"
-                              : "transparent",
-                          color: "#fff",
-                          cursor: isChallengeDisabled
-                            ? "not-allowed"
-                            : "pointer",
-                          opacity: isChallengeDisabled ? 0.5 : 1,
-                          borderRadius: "6px 0 0 6px",
-                          transition: "all 0.2s",
-                        }}
+                        className={`mode-button challenge-btn ${
+                          effectiveMode === AppMode.CHALLENGE
+                            ? "mode-button-active"
+                            : ""
+                        } ${isChallengeDisabled ? "mode-button-disabled" : ""}`}
                       >
                         Challenge Mode
                       </button>
 
-                      {/* Scanner Mode (Dropdown logic removed) */}
+                      {/* Scanner Mode */}
                       <button
                         onClick={() =>
                           setGlobalState({
@@ -146,21 +129,11 @@ export default class Header extends React.Component<Props, {}> {
                             isChallengeModeEnabled: false,
                           })
                         }
-                        style={{
-                          padding: "0 16px",
-                          border: "none",
-                          borderLeft: "1px solid rgba(255,255,255,0.4)",
-                          background:
-                            effectiveMode === "scanner"
-                              ? "#fc7303"
-                              : "transparent",
-                          color: "#fff",
-                          cursor: "pointer",
-                          display: "flex",
-                          alignItems: "center",
-                          borderRadius: "0 6px 6px 0",
-                          transition: "all 0.2s",
-                        }}
+                        className={`mode-button scanner-btn ${
+                          effectiveMode === AppMode.SCANNER
+                            ? "mode-button-active"
+                            : ""
+                        }`}
                       >
                         Scanner Mode
                       </button>
@@ -193,7 +166,6 @@ export default class Header extends React.Component<Props, {}> {
                   About Us
                 </RSuiteNav.Item>
 
-                {/* Restored Original Scanners Dropdown */}
                 <RSuiteDropDown title="Scanners">
                   <RSuiteDropDown.Item
                     href="../scanner/dast"
@@ -209,6 +181,7 @@ export default class Header extends React.Component<Props, {}> {
                     SAST
                   </RSuiteDropDown.Item>
                 </RSuiteDropDown>
+
                 <RSuiteNav.Item
                   href="https://github.com/SasanLabs/VulnerableApp-facade"
                   icon={<RSuiteIcon icon="github" role={"img"} />}
@@ -216,7 +189,6 @@ export default class Header extends React.Component<Props, {}> {
                   Github
                 </RSuiteNav.Item>
 
-                {/* Restored Original Projects Dropdown */}
                 <RSuiteDropDown title="Projects by SasanLabs">
                   <RSuiteDropDown.Item
                     href="https://github.com/SasanLabs/VulnerableApp"
